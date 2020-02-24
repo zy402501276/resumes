@@ -1,0 +1,119 @@
+body
+{
+    font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",Georgia,tahoma,arial,simsun,"摰衤��"，NSimSun;
+}
+
+.container
+{
+   margin-left: auto;
+   margin-right: auto;
+   max-width: 600px;/*一定要设置width，才能够使用margin auto属性*/
+
+}
+
+.container h1
+{
+    font-weight: 400;
+    color:#ccc
+}
+
+.container *::placeholder /*使用了伪元素注意*/
+{
+    color:#ccc;
+}
+
+.container input[type='text'] ,.container input[type='password'] 
+{
+    padding: 10px;
+    border:none;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+}
+
+
+
+.container input[type='submit'] 
+{
+    padding: 10px;
+    border:0px;
+    border-radius: 5%;
+    background-color: rgb(184, 184, 245);/*背景色 */
+    color:white;/*字体颜色*/
+    font-size: 14px;
+}
+
+.container textarea
+{
+    padding: 10px;
+    border: 2px solid #e7e4e4;
+    font-size: 14px;
+    min-height: 200px;
+}
+
+.full{
+    width: 100%;
+}
+
+.middle
+{
+    width:300px
+}
+
+.middle-button
+{
+    width:100px !important
+}
+
+.form_info:not(:empty) /*为空的时候不显示样式*/
+{
+    padding:10px;
+    font-size: 14px;
+    background-color: rgb(250, 241, 250);
+}
+
+.resume_list
+{
+    
+    padding: 0px;
+    font-size: 18px !important;
+}
+
+.resume_list li
+{
+    margin:0px;
+    list-style: inside;
+    list-style-image: url("img/person_add.png");
+    vertical-align: middle;
+}
+
+.resume_list li .title
+{
+    display: inline-block;/*a使用标签使用inline-block后为什么会变成长？*/
+    line-height: 50px;
+    border:none;
+    border-bottom: 1px solid #ccc;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: rgb(148, 187, 219);
+}
+
+.resume_list li *:not(.title)
+{
+    padding-left: 4px;
+    display: inline-block;
+}
+
+.resume_add
+{
+    text-decoration: none;
+    color: rgb(148, 187, 219);
+    display: inline-block;
+    font-size: 16px;
+    margin-top:16px;
+}
+
+.resume_add img
+{
+    max-height: 15px;
+}
