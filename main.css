@@ -50,6 +50,17 @@ body
     min-height: 200px;
 }
 
+.container a
+{
+    color: coral;
+    text-decoration: none;
+}
+.container a:hover
+{
+    text-decoration: underline;
+}
+
+
 .full{
     width: 100%;
 }
@@ -116,4 +127,64 @@ body
 .resume_add img
 {
     max-height: 15px;
+}
+
+.headerbox
+{
+    min-height: 60px;
+    border-bottom:1px solid #ccc;
+    clear:box;
+}
+
+.headerbox .logo
+{
+    float: left;
+}
+
+.headerbox .logo > img
+{
+    height: 50px;
+    weight: 50px;
+    margin-right: 10px;
+}
+
+
+.headerbox .menu
+{
+    float: right;
+    margin:0px;
+    padding: 0px;
+
+}
+
+.headerbox .menu li
+{
+    display: inline-block;
+    margin-left: 10px   ;
+    
+}
+
+.headerbox .menu >li a
+{
+    color:rgb(148, 187, 219);
+
+    text-decoration: none;
+    font-size: 18px;
+    
+}
+
+.headerbox .menu li a:hover
+{
+
+    text-decoration: underline;
+    
+}
+
+.menu_square
+{
+    display: inline-block;
+    background-color:#ccc;
+    height: 10px;
+    width: 10px;
+    margin-right: 5px;
 }

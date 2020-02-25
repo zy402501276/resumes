@@ -10,12 +10,12 @@ if( $_SESSION['uid']  < 1 )
 error_reporting(E_ALL & ~E_NOTICE);
 
 //获取参数
-
+$id = intval( $_REQUEST['id'] );
 $title = trim( $_REQUEST['title'] );
 $content = trim( $_REQUEST['content'] );
 
 //参数检测
-
+if( strlen( $id ) < 1 ) die( "id不能为空" );
 if( strlen( $title ) < 1 ) die( "简历标题不能为空" );
 if( strlen( $content ) < 6 ) die( "简历内容不能少于10个字符" );
 
@@ -24,13 +24,14 @@ if( strlen( $content ) < 6 ) die( "简历内容不能少于10个字符" );
 try {
     $dbh = new PDO('mysql:host=mysql.ftqq.com;dbname=fangtangdb', 'php', 'fangtang');
     $dbh->setAttribute( PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION );
-    $sql = "INSERT INTO `resume` ( `title` , `content` , `uid` , `create_at` ) VALUES ( ? , ? , ? , ?)";
+    $sql = "UPDATE `resume` SET `title` = ? , `content` = ? , `create_at` = ? WHERE `id` = ?  AND `uid` = ? LIMIT 1";
     $stmt = $dbh->prepare( $sql );
     //$stmt->execute( [ $email , password_hash( $password , PASSWORD_DEFAULT), date( "Y-m-d H:i:s" ) ] );
     $stmt->bindParam( 1 , $title );
     $stmt->bindParam( 2 , $content );
-    $stmt->bindParam( 3 , $_SESSION['uid'] );
-    $stmt->bindParam( 4 , date( "Y-m-d H:i:s" ) );
+    $stmt->bindParam( 3 , date( "Y-m-d H:i:s" ) );
+    $stmt->bindParam( 4 , $id );
+    $stmt->bindParam( 5 , $_SESSION['uid'] );
     $stmt->execute();
     // header("Location: user_login.php");
     // die("注册成功");？？？？为什么不会转向呢 php页面转向直接对ajax组件产生了影响
@@ -44,7 +45,7 @@ catch ( PDOException $e)
     {
         die("简历名称已存在");
     }
-    
+  
 }
 catch( Exception $e ) {
     echo $e->getMessage();

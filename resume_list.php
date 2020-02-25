@@ -8,15 +8,12 @@ if( $_SESSION['uid']  < 1 )
 try {
     $dbh = new PDO('mysql:host=mysql.ftqq.com;dbname=fangtangdb', 'php', 'fangtang');
     $dbh->setAttribute( PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION );
-    $sql = "SELECT  `id` ,  `title` , `content` , `uid` , `create_at`  FROM `resume` WHERE `uid` = ?";
+    $sql = "SELECT  `id` ,  `title` , `content` , `uid` , `create_at`  FROM `resume` WHERE `uid` = ? AND `is_deleted` != 1";
     $stmt = $dbh->prepare( $sql );
     //$stmt->execute( [ $email , password_hash( $password , PASSWORD_DEFAULT), date( "Y-m-d H:i:s" ) ] );
     $stmt->bindParam( 1 , $_SESSION['uid'] );
     $stmt->execute();
-    $resume_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // header("Location: user_login.php");
-    // die("注册成功");？？？？为什么不会转向呢 php页面转向直接对ajax组件产生了影响
-    
+    $resume_list = $stmt->fetchAll(PDO::FETCH_ASSOC); 
 } 
 catch ( Execption $e)  
 {
@@ -39,11 +36,11 @@ catch ( Execption $e)
         <?php if( $resume_list ):?>
         <ul class="resume_list">
             <?php foreach( $resume_list as $item ):?>    
-                <li>
-                    <a href="resume_detail.php?id=<?=$item['id']?>" class="title middle"><?=$item['title'];?></a> 
-                    <a href="resume_detail.php?id=<?=$item['id']?>"><img src="img/arrow_back.png" alt="查看"></a>
+                <li id="del_target_<?=$item['id']?>">
+                    <a href="resume_detail.php?id=<?=$item['id']?>" class="title middle" target="_blank"><?=$item['title'];?></a> 
+                    <a href="resume_detail.php?id=<?=$item['id']?>" target="_blank"><img src="img/arrow_back.png" alt="查看"></a>
                     <a href="resume_update.php?id=<?=$item['id']?>"><img src="img/createmode_editedit.png" alt="修改"></a>
-                    <a href="resume_delete.php?id=<?=$item['id']?>"><img src="img/remove_circle_outline.png" alt="删除"></a>
+                    <a href="javascript:confirm_delete(<?=$item['id']?>);void(0)"><img src="img/remove_circle_outline.png" alt="删除"></a>
                 </li>
             <?php endforeach;?>
         </ul>
