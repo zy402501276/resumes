@@ -5,6 +5,9 @@ if( $_SESSION['uid']  < 1 )
     header("Location: user_login.php");
     die("<a href='user_log.php'>请先登入再浏览简历</a>");
 }
+
+$is_login = true;
+
 try {
     $dbh = new PDO('mysql:host=mysql.ftqq.com;dbname=fangtangdb', 'php', 'fangtang');
     $dbh->setAttribute( PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION );
@@ -32,6 +35,7 @@ catch ( Execption $e)
 </head>
 <body>
     <div class="container">
+    <?php include_once 'header.php'?>
         <h1>我的简历</h1> 
         <?php if( $resume_list ):?>
         <ul class="resume_list">

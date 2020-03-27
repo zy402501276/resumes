@@ -1,7 +1,8 @@
 <?php
+
 session_start();
 
-$is_login = $_SESSION['uid']  < 1 ? false : true;
+$is_login = isset($_SESSION['uid'])  < 1 ? false : true;
 
 
 try {
