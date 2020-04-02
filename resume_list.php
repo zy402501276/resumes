@@ -6,7 +6,7 @@ if( $_SESSION['uid']  < 1 )
     die("<a href='user_log.php'>请先登入再浏览简历</a>");
 }
 try {
-    $dbh = new PDO('mysql:host=mysql.ftqq.com;dbname=fangtangdb', 'php', 'fangtang');
+    $dbh = new PDO('mysql:host=127.0.0.1;dbname=resume', 'root', 'root');
     $dbh->setAttribute( PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION );
     $sql = "SELECT  `id` ,  `title` , `content` , `uid` , `create_at`  FROM `resume` WHERE `uid` = ? AND `is_deleted` != 1";
     $stmt = $dbh->prepare( $sql );
@@ -14,6 +14,7 @@ try {
     $stmt->bindParam( 1 , $_SESSION['uid'] );
     $stmt->execute();
     $resume_list = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+    
 } 
 catch ( Execption $e)  
 {
@@ -32,6 +33,7 @@ catch ( Execption $e)
 </head>
 <body>
     <div class="container">
+    <?php $is_login = true ;  include_once 'header.php'?>
         <h1>我的简历</h1> 
         <?php if( $resume_list ):?>
         <ul class="resume_list">

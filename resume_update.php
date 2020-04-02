@@ -33,6 +33,7 @@ catch( Exception $e ) {
 </head>
 <body>
     <div class="container">
+    <?php $is_login = true ;  include_once 'header.php'?>
         <h1>修改简历</h1> 
         <form action="resume_edit.php" method="post" id="form_resume" onsubmit="send_form('form_resume');return false;" >
             <div id="form_resume_notice" class="form_info full"></div>

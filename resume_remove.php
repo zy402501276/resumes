@@ -18,7 +18,7 @@ if( strlen( $id ) < 1 ) die( "id不能为空" );
 //连接数据库
 
 try {
-    $dbh = new PDO('mysql:host=mysql.ftqq.com;dbname=fangtangdb', 'php', 'fangtang');
+    $dbh = new PDO( 'mysql:host=127.0.0.1;dbname=resume' , 'root', 'root' );
     $dbh->setAttribute( PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION );
     $sql = "UPDATE `resume` SET `is_deleted` = ? , `title` = CONCAT( `title` , ? ), `create_at` = ? WHERE `id` = ?  AND `uid` = ? LIMIT 1";
     $stmt = $dbh->prepare( $sql );
@@ -29,7 +29,7 @@ try {
     $uid = $_SESSION['uid'];
     
     $stmt->bindParam( 1 , $del ); //bindParm的第二个参数一定要为变量。！！！！
-    $stmt->bindParam( 2 ,  $time);
+    $stmt->bindParam( 2 ,  $time );
     $stmt->bindParam( 3 , $datetime );
     $stmt->bindParam( 4, $id );
     $stmt->bindParam( 5 , $uid );
