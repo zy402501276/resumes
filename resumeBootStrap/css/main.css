@@ -49,7 +49,7 @@
 
 .resume-list li .title
 {
-    display: inline-block;/*a浣跨敤鏍囩浣跨敤inline-block鍚庝负浠�涔堜細鍙樻垚闀匡紵*/
+    display: inline-block;/*a使用标签使用inline-block后为什么会变成长？*/
     line-height: 50px;
     border:none;
     border-bottom: 1px solid #ccc;
