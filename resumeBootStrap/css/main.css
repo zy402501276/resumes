@@ -1,0 +1,66 @@
+.middle
+{
+    width: 600px;
+}
+
+.container
+{
+    max-width: 900px;
+}
+
+.container .title
+{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+.menu-square
+{
+    display: inline-block;
+    background-color:#ccc;
+    height: 10px;
+    width: 10px;
+    margin-right: 5px;
+}
+
+.page-box h1
+{
+    margin-top: 40px;
+    font-size: 40px;
+    margin-bottom: 40px;
+    color:#ccc
+}
+
+.resume-list
+{
+    
+    padding: 0px;
+    font-size: 18px !important;
+}
+
+.resume-list li
+{
+    margin:0px;
+    list-style: inside;
+    list-style-image: url("../img/person_add.png");
+    vertical-align: middle;
+}
+
+.resume-list li .title
+{
+    display: inline-block;/*a使用标签使用inline-block后为什么会变成长？*/
+    line-height: 50px;
+    border:none;
+    border-bottom: 1px solid #ccc;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: rgb(148, 187, 219);
+}
+
+.resume-list li *:not(.title)
+{
+    padding-left: 4px;
+    display: inline-block;
+}

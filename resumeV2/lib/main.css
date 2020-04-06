@@ -1,0 +1,149 @@
+body
+{
+    font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    margin: 0px;
+}
+
+.container
+{
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px; /*一定要用max-width才会生效???*/
+}
+
+.container h1
+{
+    font-weight: 500;
+    font-size: 36px;
+    color:rgb(247, 175, 149);
+}
+
+.container input[type='text'],.container input[type='password']
+{
+    border:1px solid #e6dfdf;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.container input[type='submit']
+{
+    padding: 10px;
+    border:0px;
+    background-color: rgb(247, 175, 149);
+    font-size: 14px;
+    color:white;
+    text-align: center;
+
+}
+
+.container input[type='button']
+{
+    padding: 10px;
+    border:0px;
+    background-color: rgb(179, 173, 171);
+    font-size: 14px;
+    color:white;
+    text-align: center;
+    margin-left: 50px;
+
+}
+
+.container textarea
+{
+    padding: 10px;
+}
+
+.middle
+{
+    width: 300px;
+}
+
+.middle_btn
+{
+    width: 100px;
+}
+
+.full
+{
+    width: 100%!important;
+}
+
+.form_info:not(:empty)
+{
+    /*少了个boder 1px*/
+    background-color: rgb(202, 202, 236);
+    padding:10px;
+    font-size: 14px;
+    color:white;
+}
+
+.resume-list
+{
+    padding:0px;
+}
+
+.resume-list li
+{
+    margin:0px;
+    list-style: inside;
+    vertical-align: middle;/*???什么意思*/
+    list-style-image: url('../img/profile.png');
+   
+}
+
+.resume-list li .title
+{
+    display: inline-block;/*???为什么要加inline-block*/
+    padding: 10px;
+    font-size: 16px;
+    text-decoration: none;
+    border-bottom: 1px solid #ccc;
+    color:rgb(109, 195, 221);
+
+}
+.resume-list li a:not(.title)
+{   
+    padding-top: 5px;
+    display: inline-block;/*???为什么要加inline-block*/
+    color:rgb(109, 195, 221);
+}
+
+.add_resume
+{
+    text-decoration: none;
+    color:rgb(109, 195, 221);
+}
+
+.logo_pic
+{
+    height: 100px;
+}
+
+.header_box
+{
+    min-height: 60px;
+    border-bottom: 1px solid #ccc ;
+    clear: both;
+    display: table;
+    width: 700px;
+
+}
+
+.header_box .logo_box
+{
+    float: left;
+}
+
+.header_box .menu_box
+{
+    float: right;
+    margin-top:60px;
+}
+
+.header_box .menu_box li
+{
+    display: inline-block;
+    color:rgb(247, 175, 149);
+    margin-left: 10px;
+}
