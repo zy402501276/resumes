@@ -18,7 +18,7 @@ if( strlen( $id ) < 1 ) die( "id不能为空" );
 //连接数据库
 
 try {
-    $dbh = new PDO( 'mysql:host=127.0.0.1;dbname=resume' , 'root', 'root' );
+    $dbh = new PDO('mysql:host=127.0.0.1;dbname=study', 'root', 'root');
     $dbh->setAttribute( PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION );
     $sql = "UPDATE `resume` SET `is_deleted` = ? , `title` = CONCAT( `title` , ? ), `create_at` = ? WHERE `id` = ?  AND `uid` = ? LIMIT 1";
     $stmt = $dbh->prepare( $sql );

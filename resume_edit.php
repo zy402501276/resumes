@@ -22,7 +22,7 @@ if( strlen( $content ) < 6 ) die( "简历内容不能少于10个字符" );
 //连接数据库
 
 try {
-    $dbh = new PDO('mysql:host=mysql.ftqq.com;dbname=fangtangdb', 'php', 'fangtang');
+    $dbh = new PDO('mysql:host=127.0.0.1;dbname=study', 'root', 'root');
     $dbh->setAttribute( PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION );
     $sql = "UPDATE `resume` SET `title` = ? , `content` = ? , `create_at` = ? WHERE `id` = ?  AND `uid` = ? LIMIT 1";
     $stmt = $dbh->prepare( $sql );

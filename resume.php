@@ -5,7 +5,7 @@ $is_login = $_SESSION['uid']  < 1 ? false : true;
 
 
 try {
-    $dbh = new PDO('mysql:host=127.0.0.1;dbname=resume', 'root', 'root');
+    $dbh = new PDO('mysql:host=127.0.0.1;dbname=study', 'root', 'root');
     $dbh->setAttribute( PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION );
     $sql = "SELECT  `id` ,  `title` , `content` , `uid` , `create_at`  FROM `resume` WHERE `is_deleted` != 1";
     $stmt = $dbh->prepare( $sql );

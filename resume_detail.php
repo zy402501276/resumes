@@ -5,7 +5,7 @@ include_once 'lib/Parsedown.php';
 $id = intval( trim( $_REQUEST['id'] ) );
 
 try {
-    $dbh = new PDO('mysql:host=127.0.0.1;dbname=resume', 'root', 'root');
+    $dbh = new PDO('mysql:host=127.0.0.1;dbname=study', 'root', 'root');
     $dbh->setAttribute( PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION );
     $sql = "SELECT * FROM `resume` WHERE `id` = ? LIMIT 1";
     $stmt = $dbh->prepare( $sql );

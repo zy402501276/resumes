@@ -22,7 +22,8 @@ if( strlen( $content ) < 6 ) die( "简历内容不能少于10个字符" );
 //连接数据库
 
 try {
-    $dbh = new PDO('mysql:host=127.0.0.1;dbname=resume', 'root', 'root');
+    
+    $dbh = new PDO('mysql:host=127.0.0.1;dbname=study', 'root', 'root');
     $dbh->setAttribute( PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION );
     $sql = "INSERT INTO `resume` ( `title` , `content` , `uid` , `create_at` ) VALUES ( ? , ? , ? , ?)";
     $stmt = $dbh->prepare( $sql );
@@ -35,7 +36,7 @@ try {
     // header("Location: user_login.php");
     // die("注册成功");？？？？为什么不会转向呢 php页面转向直接对ajax组件产生了影响
     //header("Location: resume_list.php");  
-    die("<script>location='resume_list.php'</script>");
+    die("添加成功<script>location.href='resume_list.php'</script>");
 } 
 catch ( PDOException $e)  
 {

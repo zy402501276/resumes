@@ -24,7 +24,7 @@ if( $password2 != $password2 ) die( "两次输入密码不一致" );
 if(!filter_var($email, FILTER_VALIDATE_EMAIL)) die( "邮箱格式不正确" );
 //连接数据库
 try {
-    $dbh = new PDO('mysql:host=127.0.0.1;dbname=resume', 'root', 'root');
+    $dbh = new PDO('mysql:host=127.0.0.1;dbname=study', 'root', 'root');
     $dbh->setAttribute( PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION );
     $sql = "INSERT INTO `user` ( `email` , `password` , `create_at` ) VALUES ( ? , ? , ?)";
     $stmt = $dbh->prepare( $sql );

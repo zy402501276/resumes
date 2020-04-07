@@ -19,22 +19,28 @@ catch ( Execption $e)
     die($e->getMessage());
     
 }
-?><!DOCTYPE html>
+?><!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>放糖简历</title>
-    <link rel="stylesheet" href="main.css">
-    <script src="http://lib.sinaapp.com/js/jquery/3.1.0/jquery-3.1.0.min.js"></script>
-    <script src="main.js"></script>
-</head>
-<body>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="lib/bootstrap-4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <title>简历中心</title>
+  </head>
+  <body>
     <div class="container">
-        <?php include_once 'header.php'?>
+    <?php $is_login = false; include 'header.php'; ?>
+
+
+        <div class="page-box">
         <h1>简历中心</h1> 
         <?php if( $resume_list ):?>
-        <ul class="resume_list">
+        <ul class="resume-list">
             <?php foreach( $resume_list as $item ):?>    
                 <li id="del_target_<?=$item['id']?>">
                     <a href="resume_detail.php?id=<?=$item['id']?>" class="title middle" target="_blank"><?=$item['title'];?></a> 
@@ -43,6 +49,13 @@ catch ( Execption $e)
             <?php endforeach;?>
         </ul>
         <?php endif;?>    
+        </div>
+
     </div>
-</body>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="http://lib.sinaapp.com/js/jquery/3.1.0/jquery-3.1.0.min.js"></script>
+    <script src="lib/bootstrap-4.4.1/dist/js/bootstrap.min.js"></script>
+  </body>
 </html>

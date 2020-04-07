@@ -17,3 +17,15 @@ function confirm_delete( id )
         } );
     }
 }
+
+function user_logout(){
+    $.post("user_logout.php",null,function(data){
+
+        if( data == 'done' )
+        {
+            alert("退出");
+            window.location.href="index.php";
+        }
+
+    })
+}
