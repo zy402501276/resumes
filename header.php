@@ -1,5 +1,5 @@
 <div class="headerbox">
-            <div class="logo"><img src="img/logo.png" alt="logo"></div>
+            <div class="logo"><a href="resume.php"><img src="img/logo.png" alt="logo"></a></div>
             <ul class="menu">
                 <?php if( $is_login ):?>
                 <li><span class="menu_square"></span> <a href="resume_list.php">我的简历</a></li>

@@ -1,13 +1,10 @@
 <?php
-session_start();
-if( $_SESSION['uid']  < 1 )
-{
-    header("Location: user_login.php");
-    die("<a href='user_log.php'>请先登入再添加简历</a>");
-}
-
-
-error_reporting(E_ALL & ~E_NOTICE);
+// session_start();
+// if( $_SESSION['uid']  < 1 )
+// {
+//     header("Location: user_login.php");
+//     die("<a href='user_login.php'>请先登入再添加简历</a>");
+// }
 
 //获取参数
 
@@ -26,9 +23,8 @@ if( $password2 != $password2 ) die( "两次输入密码不一致" );
 
 if(!filter_var($email, FILTER_VALIDATE_EMAIL)) die( "邮箱格式不正确" );
 //连接数据库
-
 try {
-    $dbh = new PDO('mysql:host=mysql.ftqq.com;dbname=fangtangdb', 'php', 'fangtang');
+    $dbh = new PDO('mysql:host=127.0.0.1;dbname=resume', 'root', 'root');
     $dbh->setAttribute( PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION );
     $sql = "INSERT INTO `user` ( `email` , `password` , `create_at` ) VALUES ( ? , ? , ?)";
     $stmt = $dbh->prepare( $sql );

@@ -16,7 +16,7 @@ if(!filter_var($email, FILTER_VALIDATE_EMAIL)) die( "邮箱格式不正确" );
 //连接数据库
 
 try {
-    $dbh = new PDO('mysql:host=mysql.ftqq.com;dbname=fangtangdb', 'php', 'fangtang');
+    $dbh = new PDO('mysql:host=127.0.0.1;dbname=resume', 'root', 'root');
     $dbh->setAttribute( PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION );
     $sql = "SELECT * FROM `user` WHERE `email` = ? LIMIT 1";
     $stmt = $dbh->prepare( $sql );
