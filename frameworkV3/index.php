@@ -1,13 +1,29 @@
 <?php
 
+define( "DS" , DIRECTORY_SEPARATOR );
+define( "ROOT" , __DIR__ );
+define( "FRAMEWORK" , ROOT.DS."framework" );
+define( "VIEW" , FRAMEWORK.DS."view" );
+define("STATIC",FRAMEWORK.DS.'static');
+
+
 include 'vendor/autoload.php';
 
-$m = v( 'm' ) ? v( 'm' ) : 'default';
+$GLOBALS['class'] = $m = v( 'm' ) ? v( 'm' ) : 'default';
 $m = ucfirst( strtolower( $m ) );
-$a = v( 'a' ) ? v( 'a' ) : 'index';
+$GLOBALS['action'] = $a = v( 'a' ) ? v( 'a' ) : 'index';
 
-$controller = "OriginFrame\\Controller\\".$m;
+try
+{
+    $controller = "OriginFrame\\Controller\\".$m;
 
-call_user_func( [ new $controller() , $a ] );
+    call_user_func( [ new $controller() , $a ] );
+}
+catch( Exception $e)
+{
+    die( $e->getMessage() );
+}
+
+
 
 
